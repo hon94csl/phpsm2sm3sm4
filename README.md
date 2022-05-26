@@ -10,9 +10,10 @@ https://github.com/lpilp/phpsm2sm3sm4
 * 有一个sm3, sm4的比较好的代码： https://github.com/lizhichao/sm  可以使用composer安装，只是这个的ecb, cbc没有做补齐
 
 ### 使用(how to use)
-* composer require lpilp/guomi
+* composer require hon94csl/guomi
 * please make sure you upgrade to Composer 2+
 * PHP >=7.0
+* 如过需要使用 PHP7.2 或更高版本的 ，请使用原版  composer require lpilp/guomi ; https://github.com/lpilp/phpsm2sm3sm4
 * 如需要使用php5.6 请使用wzhih童鞋fork修改的 https://github.com/wzhih/guomi ; composer require wzhih/guomi
 ### SM2
 * 签名验签算法主体基于PHPECC算法架构，添加了sm2的椭圆参数， 
