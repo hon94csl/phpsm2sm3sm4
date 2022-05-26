@@ -1,4 +1,4 @@
-#说明：
+# 说明：
 本项目由lpilp大佬以下项目fork而来
 https://github.com/lpilp/phpsm2sm3sm4
 * 原项目要求PHP版本最低为 php7.2，本项目是为了适配php7 而做修改。
