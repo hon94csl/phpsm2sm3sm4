@@ -1,31 +1,23 @@
 {
-    "name": "lpilp/guomi",
+    "name": "hon94csl/guomi",
     "description": "国密sm2",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "recent",
-            "email": "lpilp@126.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=7.2",
-        "mdanter/ecc": "^1.0"
-    },
     "autoload": {
         "psr-4": {
             "Rtgm\\": "src"
         },
         "files": ["src/overwrite.php"]
-        
     },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer/"
+    "authors": [
+        {
+            "name": "陈烁临",
+            "email": "hon94csl@gmail.com"
         }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "mdanter/ecc": "^1.0"
     }
-    
 }

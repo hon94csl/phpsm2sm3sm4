@@ -1,3 +1,9 @@
+#说明：
+本项目由lpilp大佬以下项目fork而来
+https://github.com/lpilp/phpsm2sm3sm4
+* 原项目要求PHP版本最低为 php7.2，本项目是为了适配php7 而做修改。
+* 改动部分主要是 降级 类常量声明语法 移除私有声明
+* 理论上 可以支持php7 序列 版本
 # php sm2 sm3 sm4 国密算法整理
 * 本项目支持php版本的国密sm2的签名算法，非对称加解密算法（非对称加密刚上线，目前测试无问题，不能保证兼容其他语言，有问题可以提issues），sm3的hash,  sm4的对称加解密，要求PHP７，打开gmp支持
 * 目前如果服务器配套的使用的是openssl 1.1.1x, 目前到1.1.1.l(L) ,sm3,sm4都可以直接用openssl_xxx系列函数直接实现，不必大量的代码,但不支持sm2的签名，sm2的加解密
@@ -6,7 +12,7 @@
 ### 使用(how to use)
 * composer require lpilp/guomi
 * please make sure you upgrade to Composer 2+
-* PHP >=7.2
+* PHP >=7.0
 * 如需要使用php5.6 请使用wzhih童鞋fork修改的 https://github.com/wzhih/guomi ; composer require wzhih/guomi
 ### SM2
 * 签名验签算法主体基于PHPECC算法架构，添加了sm2的椭圆参数， 

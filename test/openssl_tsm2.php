@@ -9,13 +9,13 @@ $config = array(
     "private_key_type" => OPENSSL_KEYTYPE_EC,
     "curve_name" => "SM2"
 );
-$sslconf = "/usr/local/php/extras/openssl/openssl.cnf";
-$config['config'] = $sslconf;
+$sslconf = "/usr/local/etc/openssl@1.1/openssl.cnf";
+// echo ($sslconf);
+// exit;
+// $config['config'] = $sslconf;
+$config['config'] = '/usr/local/etc/openssl@1.1/openssl.cnf';
 $prikey = openssl_pkey_new($config);
-openssl_pkey_export($prikey, $prikeypem,null,$config);
-echo $prikeypem."\n";
+openssl_pkey_export($prikey, $prikeypem, null, $config);
+echo $prikeypem . "\n";
 $pubkeypem = openssl_pkey_get_details($prikey)["key"];
-echo $pubkeypem."\n";
-
-
-
+echo $pubkeypem . "\n";

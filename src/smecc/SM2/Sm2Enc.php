@@ -1,4 +1,5 @@
 <?php
+
 namespace Rtgm\smecc\SM2;
 
 use Rtgm\smecc\SM3\SM3Digest;
@@ -6,11 +7,11 @@ use Rtgm\smecc\SM3\SM3Digest;
 class SM2Enc
 {
 
-    private const  SM2_ADDBYTE = 97;//加密后的数据会增加的长度
-    private const  MAX_ENCLEN = 128; //最大的加密长度分组
-    private const  MAX_DECLEN = (self::MAX_ENCLEN + self::SM2_ADDBYTE); //最大的解密长度分组
+    const  SM2_ADDBYTE = 97; //加密后的数据会增加的长度
+    const  MAX_ENCLEN = 128; //最大的加密长度分组
+    const  MAX_DECLEN = (self::MAX_ENCLEN + self::SM2_ADDBYTE); //最大的解密长度分组
 
-/*     public function SM2_EncStringBySoft($InString, $PubKeyX, $PubKeyY, $generator)
+    /*     public function SM2_EncStringBySoft($InString, $PubKeyX, $PubKeyY, $generator)
     {
 
         $Kx = gmp_init($PubKeyX, 16);
