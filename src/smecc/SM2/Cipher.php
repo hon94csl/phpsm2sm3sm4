@@ -1,9 +1,9 @@
 <?php
 //
-namespace Rtgm\smecc\SM2;
+namespace HonPhpsm\smecc\SM2;
 
-use Rtgm\smecc\SM3\SM3Digest;
-use Rtgm\sm\RtSm2;
+use HonPhpsm\smecc\SM3\SM3Digest;
+use HonPhpsm\sm\RtSm2;
 
 class Cipher
 {
@@ -31,12 +31,12 @@ class Cipher
         $p = array();
 
         $gmp_x = $this->p2->GetX();
-        $x = Hex2ByteBuf::ConvertGmp2ByteArray($gmp_x);
+        $x = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_x);
         $this->sm3keybase->BlockUpdate($x, 0, sizeof($x));
         $this->sm3c3->BlockUpdate($x, 0, sizeof($x));
 
         $gmp_y = $this->p2->GetY();
-        $y = Hex2ByteBuf::ConvertGmp2ByteArray($gmp_y);
+        $y = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_y);
         $this->sm3keybase->BlockUpdate($y, 0, sizeof($y));
 
         $this->ct = 1;
@@ -107,10 +107,10 @@ class Cipher
     {
         $c3 = array();
         $gmp_p = $this->p2->GetY();
-        $p = Hex2ByteBuf::ConvertGmp2ByteArray($gmp_p);
+        $p = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_p);
         $this->sm3c3->BlockUpdate($p, 0, sizeof($p));
         $this->sm3c3->DoFinal($c3, 0);
-        $this->Reset(); 
+        $this->Reset();
         return $c3;
     }
 }

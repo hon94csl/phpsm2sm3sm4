@@ -1,5 +1,7 @@
 <?php
-namespace Rtgm\smecc\SM4\handler;
+
+namespace HonPhpsm\smecc\SM4\handler;
+
 /**
  * ExtendedCompression @ SM3-PHP
  *
@@ -8,8 +10,8 @@ namespace Rtgm\smecc\SM4\handler;
  * Powered by PhpStorm
  */
 
-use Rtgm\smecc\SM4\libs\WordConversion;
-use Rtgm\smecc\SM4\types\Word;
+use HonPhpsm\smecc\SM4\libs\WordConversion;
+use HonPhpsm\smecc\SM4\types\Word;
 
 
 /**

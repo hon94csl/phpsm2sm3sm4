@@ -1,16 +1,19 @@
 <?php
-namespace Rtgm\ecc;
+
+namespace HonPhpsm\ecc;
 
 use Mdanter\Ecc\Math\GmpMathInterface;
 use Mdanter\Ecc\Math\MathAdapterFactory;
 use Mdanter\Ecc\EccFactory;
 
-// use Rtgm\sm\ecc\NistCurve;
-use Rtgm\ecc\Sm2Curve;
+// use HonPhpsm\sm\ecc\NistCurve;
+use HonPhpsm\ecc\Sm2Curve;
+
 /**
  * 添加sm2的工厂，采用类的继承方式，这里也可以采用如 \Curves\CurveFctory的覆盖的方式
  */
-class RtEccFactory extends EccFactory{
+class RtEccFactory extends EccFactory
+{
 
     /**
      * Selects and creates the most appropriate adapter for the running environment.
@@ -39,6 +42,4 @@ class RtEccFactory extends EccFactory{
         // var_dump($adapter);
         return new Sm2Curve($adapter);
     }
-
-    
 }

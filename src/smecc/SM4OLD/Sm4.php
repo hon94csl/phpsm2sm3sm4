@@ -1,5 +1,6 @@
 <?php
-namespace Rtgm\smecc\SM4;
+
+namespace HonPhpsm\smecc\SM4;
 
 class Sm4
 {
@@ -94,7 +95,7 @@ class Sm4
             $buf = (self::$SM4_SBOX[($tmp >> 24) & 0xFF]) << 24 | (self::$SM4_SBOX[($tmp >> 16) & 0xFF]) << 16
                 | (self::$SM4_SBOX[($tmp >> 8) & 0xFF]) << 8 | (self::$SM4_SBOX[$tmp & 0xFF]);
             $x[$i + 4] = $x[$i] ^ ($buf ^ $this->sm4Rotl32(($buf), 2) ^ $this->sm4Rotl32(($buf), 10)
-                    ^ $this->sm4Rotl32(($buf), 18) ^ $this->sm4Rotl32(($buf), 24));
+                ^ $this->sm4Rotl32(($buf), 18) ^ $this->sm4Rotl32(($buf), 24));
         }
         $plainText = array();
         for ($k = 0; $k < 4; $k++) {
@@ -118,7 +119,7 @@ class Sm4
             $buf = (self::$SM4_SBOX[($tmp >> 24) & 0xFF]) << 24 | (self::$SM4_SBOX[($tmp >> 16) & 0xFF]) << 16
                 | (self::$SM4_SBOX[($tmp >> 8) & 0xFF]) << 8 | (self::$SM4_SBOX[$tmp & 0xFF]);
             $x[$i + 4] = $x[$i] ^ ($buf ^ $this->sm4Rotl32(($buf), 2) ^ $this->sm4Rotl32(($buf), 10)
-                    ^ $this->sm4Rotl32(($buf), 18) ^ $this->sm4Rotl32(($buf), 24));
+                ^ $this->sm4Rotl32(($buf), 18) ^ $this->sm4Rotl32(($buf), 24));
         }
         $cipherText = array();
         for ($k = 0; $k < 4; $k++) {
@@ -168,13 +169,13 @@ class Sm4
         $this->_rk = array();
         $key = array_values(unpack("C*", $key));
         $k = array();
-//        for ($i = 0; $i < 4; $i++) {
-//            $k[$i] = self::$SM4_FK[$i]
-//                ^ ((($key[4 * $i] ?? 0) << 24)
-//                    | (($key[4 * $i + 1] ?? 0) << 16)
-//                    | (($key[4 * $i + 2] ?? 0) << 8)
-//                    | ($key[4 * $i + 3] ?? null));
-//        }
+        //        for ($i = 0; $i < 4; $i++) {
+        //            $k[$i] = self::$SM4_FK[$i]
+        //                ^ ((($key[4 * $i] ?? 0) << 24)
+        //                    | (($key[4 * $i + 1] ?? 0) << 16)
+        //                    | (($key[4 * $i + 2] ?? 0) << 8)
+        //                    | ($key[4 * $i + 3] ?? null));
+        //        }
 
         for ($i = 0; $i < 4; $i++) {
             $k[$i] = self::$SM4_FK[$i]
@@ -191,6 +192,4 @@ class Sm4
             $this->_rk[$j] = $k[$j + 4];
         }
     }
-
 }
-

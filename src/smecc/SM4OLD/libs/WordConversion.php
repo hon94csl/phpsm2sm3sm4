@@ -1,5 +1,7 @@
 <?php
-namespace Rtgm\smecc\SM4\libs;
+
+namespace HonPhpsm\smecc\SM4\libs;
+
 /**
  * Conversion @ SM3-PHP
  *
@@ -8,7 +10,7 @@ namespace Rtgm\smecc\SM4\libs;
  * Powered by PhpStorm
  */
 
-use Rtgm\smecc\SM4\types\Word;
+use HonPhpsm\smecc\SM4\types\Word;
 
 /**
  * 字的位运算类
@@ -53,10 +55,10 @@ class WordConversion
 
         if ($prevent === '0' || $current === '0') {
             switch ($type) {
-                // and
+                    // and
                 case 1:
                     return 0;
-                // or
+                    // or
                 case 2:
                     // xor
                 case 3:
@@ -88,37 +90,37 @@ class WordConversion
         for ($i = $longest - 1; $i >= 0; $i--) {
             $prevent_number = $prevent[$i];
             switch ($type) {
-                // 与
+                    // 与
                 case 1:
                     $value[$i] = ($i >= $shortest)
                         ? $longest_value[$i]
                         : ($prevent_number & $current[$i]);
                     break;
-                // 或
+                    // 或
                 case 2:
                     $value[$i] = ($i >= $shortest)
                         ? ~$longest_value[$i]
                         : ($prevent_number | $current[$i]);
                     break;
-                // 异或
+                    // 异或
                 case 3:
                     $value[$i] = $i > $shortest
                         ? 1
                         : (intval($prevent_number) ^ intval($current[$i]));
                     break;
-                // 非（按位取反）
+                    // 非（按位取反）
                 case 4:
                     $value[$i] = $prevent_number === '1'
                         ? '0'
                         : '1';
                     break;
-                // 加
+                    // 加
                 case 5:
                     $add = $prevent_number + $current[$i] + $carry;
                     $value[$i] = $add % 2;
                     $carry = ($add - $value[$i]) / 2;
                     break;
-                // 特殊情况
+                    // 特殊情况
                 default:
                     break;
             }
@@ -136,8 +138,8 @@ class WordConversion
     private static function conversion($params, $type)
     {
         $prevent = null;
-        foreach ($params as $param){
-            $prevent = self::conversion_func($prevent,$param,$type);
+        foreach ($params as $param) {
+            $prevent = self::conversion_func($prevent, $param, $type);
         }
         return $prevent;
     }
@@ -193,11 +195,11 @@ class WordConversion
                 $word,
                 ($times % strlen($word))
             )
-            . substr(
-                $word,
-                0,
-                ($times % strlen($word))
-            )
+                . substr(
+                    $word,
+                    0,
+                    ($times % strlen($word))
+                )
         );
     }
 

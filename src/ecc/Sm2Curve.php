@@ -1,5 +1,6 @@
 <?php
-namespace Rtgm\ecc;
+
+namespace HonPhpsm\ecc;
 
 use Mdanter\Ecc\Curves\NamedCurveFp;
 use Mdanter\Ecc\Math\GmpMathInterface;

@@ -1,11 +1,12 @@
 <?php
+
 namespace icequeen\sm\smecc\SM4;
 
 
 use ErrorException;
-use Rtgm\smecc\SM4\handler\ExtendedCompression;
-use Rtgm\smecc\SM4\libs\WordConversion;
-use Rtgm\smecc\SM4\types\BitString;
+use HonPhpsm\smecc\SM4\handler\ExtendedCompression;
+use HonPhpsm\smecc\SM4\libs\WordConversion;
+use HonPhpsm\smecc\SM4\types\BitString;
 
 /**
  * 入口类
@@ -76,13 +77,12 @@ class SM3 implements \ArrayAccess
         // 填充后的消息
         $m_fill = new BitString(
             $m # 原始消息m
-            . '1' # 拼个1
-            . str_pad('', $k, '0') # 拼上k个比特的0
-            . (
-            strlen($bin_l) >= 64
-                ? substr($bin_l, 0, 64)
-                : str_pad($bin_l, 64, '0', STR_PAD_LEFT)
-            ) # 64比特，l的二进制表示
+                . '1' # 拼个1
+                . str_pad('', $k, '0') # 拼上k个比特的0
+                . (strlen($bin_l) >= 64
+                    ? substr($bin_l, 0, 64)
+                    : str_pad($bin_l, 64, '0', STR_PAD_LEFT)
+                ) # 64比特，l的二进制表示
         );
         // 二、迭代压缩
         // 迭代过程

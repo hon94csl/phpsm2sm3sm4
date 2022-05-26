@@ -1,7 +1,9 @@
 <?php
+
 /**
  * 覆盖ecc里的椭圆类，添加sm2
  */
+
 declare(strict_types=1);
 
 namespace Mdanter\Ecc\Curves;
@@ -11,7 +13,7 @@ use Mdanter\Ecc\Exception\UnsupportedCurveException;
 use Mdanter\Ecc\Math\GmpMathInterface;
 use Mdanter\Ecc\Math\MathAdapterFactory;
 use Mdanter\Ecc\Primitives\GeneratorPoint;
-use Rtgm\ecc\Sm2Curve;
+use HonPhpsm\ecc\Sm2Curve;
 
 class CurveFactory
 {
@@ -22,7 +24,7 @@ class CurveFactory
     public static function getCurveByName(string $name): NamedCurveFp
     {
         $adapter = MathAdapterFactory::getAdapter();
-        if($name == Sm2Curve::NAME_PSM2){
+        if ($name == Sm2Curve::NAME_PSM2) {
             return self::getSm2Factory($adapter)->curveSm2();
         }
         $nistFactory = self::getNistFactory($adapter);
@@ -63,7 +65,7 @@ class CurveFactory
     public static function getGeneratorByName(string $name): GeneratorPoint
     {
         $adapter = MathAdapterFactory::getAdapter();
-        if($name == Sm2Curve::NAME_PSM2){
+        if ($name == Sm2Curve::NAME_PSM2) {
             return self::getSm2Factory($adapter)->generatorSm2();
         }
         $nistFactory = self::getNistFactory($adapter);

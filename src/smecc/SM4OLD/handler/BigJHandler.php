@@ -1,6 +1,8 @@
 <?php
-namespace Rtgm\smecc\SM4\handler;
-use Rtgm\smecc\SM4\libs\WordConversion;
+
+namespace HonPhpsm\smecc\SM4\handler;
+
+use HonPhpsm\smecc\SM4\libs\WordConversion;
 
 /**
  * BigJHandler @ SM3-PHP

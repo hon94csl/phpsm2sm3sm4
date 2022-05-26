@@ -1,11 +1,11 @@
 {
-    "name": "hon94csl/guomi",
-    "description": "国密sm2",
+    "name": "hon/phpsm",
+    "description": "国密sm2 SM2withSM3",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Rtgm\\": "src"
+            "HonPhpsm\\": "src/"
         },
         "files": ["src/overwrite.php"]
     },

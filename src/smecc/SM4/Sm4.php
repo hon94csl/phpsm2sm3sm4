@@ -1,8 +1,11 @@
 <?php
+
 /**
  *  source: https://github.com/lizhichao/sm 
  */
-namespace Rtgm\smecc\SM4;
+
+namespace HonPhpsm\smecc\SM4;
+
 class Sm4
 {
     private $ck = [
@@ -344,6 +347,4 @@ class Sm4
         $b = $this->s($n);
         return $b ^ $this->lm($b, 13) ^ $this->lm($b, 23);
     }
-
-
 }

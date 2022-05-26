@@ -1,5 +1,7 @@
 <?php
-namespace Rtgm\smecc\SM4\types;
+
+namespace HonPhpsm\smecc\SM4\types;
+
 use ErrorException;
 
 /**
@@ -63,18 +65,18 @@ class BitString implements \ArrayAccess
         if (is_int($str)) {
             return decbin($str);
         }
-        $fileType = mb_detect_encoding($str , array('UTF-8','GBK','LATIN1','BIG5')) ;
-        if( $fileType != 'UTF-8'){
-            $str = mb_convert_encoding($str ,'utf-8' , $fileType);
+        $fileType = mb_detect_encoding($str, array('UTF-8', 'GBK', 'LATIN1', 'BIG5'));
+        if ($fileType != 'UTF-8') {
+            $str = mb_convert_encoding($str, 'utf-8', $fileType);
         }
         $arr = preg_split('/(?<!^)(?!$)/u', $str);
         foreach ($arr as &$v) {
-            $fileType = mb_detect_encoding($v , array('UTF-8','GBK','LATIN1','BIG5')) ;
+            $fileType = mb_detect_encoding($v, array('UTF-8', 'GBK', 'LATIN1', 'BIG5'));
             /* if( $fileType != 'GBK'){
                 $v = mb_convert_encoding($v ,'GBK' , $fileType); //这里也要utf8啊，
             } */
-            if( $fileType != 'UTF-8'){
-                $str = mb_convert_encoding($str ,'utf-8' , $fileType);
+            if ($fileType != 'UTF-8') {
+                $str = mb_convert_encoding($str, 'utf-8', $fileType);
             }
             $temp = unpack('H*', $v);
             $v = base_convert($temp[1], 16, 2);

@@ -1,8 +1,8 @@
 <?php
 //declare(strict_types=1);
-namespace Rtgm\smecc\SM3;
+namespace HonPhpsm\smecc\SM3;
 
-use Rtgm\smecc\SM3\GeneralDigest;
+use HonPhpsm\smecc\SM3\GeneralDigest;
 
 class SM3Digest extends  GeneralDigest
 {

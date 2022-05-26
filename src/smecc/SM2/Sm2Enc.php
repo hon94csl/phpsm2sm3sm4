@@ -1,8 +1,8 @@
 <?php
 
-namespace Rtgm\smecc\SM2;
+namespace HonPhpsm\smecc\SM2;
 
-use Rtgm\smecc\SM3\SM3Digest;
+use HonPhpsm\smecc\SM3\SM3Digest;
 
 class SM2Enc
 {
@@ -68,11 +68,11 @@ class SM2Enc
 
         $bc1[0]=4;
         $gmp_x = $c1->getPoint()->GetX();
-        $x=Hex2ByteBuf::ConvertGmp2ByteArray($gmp_x);
+        $x=Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_x);
         SM3Digest::arraycopy($x,0,$bc1,1,sizeof($x));
 
         $gmp_y = $c1->getPoint()->GetY();
-        $y=Hex2ByteBuf::ConvertGmp2ByteArray($gmp_y);
+        $y=Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_y);
         SM3Digest::arraycopy($y,0,$bc1,1+32,sizeof($y));
 
         $c1_len = sizeof($bc1);

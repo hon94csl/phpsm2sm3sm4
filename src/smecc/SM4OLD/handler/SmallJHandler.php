@@ -1,9 +1,10 @@
 <?php
-namespace Rtgm\smecc\SM4\handler;
+
+namespace HonPhpsm\smecc\SM4\handler;
 
 
 
-use Rtgm\smecc\SM4\libs\WordConversion;
+use HonPhpsm\smecc\SM4\libs\WordConversion;
 
 /**
  * 小j处理类

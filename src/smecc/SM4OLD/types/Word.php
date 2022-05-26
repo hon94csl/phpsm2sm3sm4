@@ -1,5 +1,6 @@
 <?php
-namespace Rtgm\smecc\SM4\types;
+
+namespace HonPhpsm\smecc\SM4\types;
 
 
 /**
@@ -42,7 +43,7 @@ class Word extends BitString implements \ArrayAccess
                     STR_PAD_LEFT
                 );
             } else {
-                $this->word = substr($this->bit_string, -(self::length));
+                $this->word = substr($this->bit_string, - (self::length));
             }
         }
     }
@@ -69,5 +70,4 @@ class Word extends BitString implements \ArrayAccess
     {
         return $this->bit_string;
     }
-
 }

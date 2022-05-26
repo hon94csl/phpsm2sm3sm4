@@ -1,7 +1,9 @@
 <?php
-namespace Rtgm\smecc\SM4\handler;
-use Rtgm\smecc\SM4\libs\WordConversion;
-use Rtgm\smecc\SM4\types\Word;
+
+namespace HonPhpsm\smecc\SM4\handler;
+
+use HonPhpsm\smecc\SM4\libs\WordConversion;
+use HonPhpsm\smecc\SM4\types\Word;
 
 /**
  * Substitution @ SM3-PHP
