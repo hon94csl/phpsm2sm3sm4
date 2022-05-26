@@ -10,7 +10,7 @@ https://github.com/lpilp/phpsm2sm3sm4
 * 有一个sm3, sm4的比较好的代码： https://github.com/lizhichao/sm  可以使用composer安装，只是这个的ecb, cbc没有做补齐
 
 ### 使用(how to use)
-* composer require hon94csl/guomi
+* composer require hon/phpsm
 * please make sure you upgrade to Composer 2+
 * PHP >=7.0
 * 如过需要使用 PHP7.2 或更高版本的 ，请使用原版  composer require lpilp/guomi ; https://github.com/lpilp/phpsm2sm3sm4
