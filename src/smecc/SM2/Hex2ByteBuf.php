@@ -5,7 +5,7 @@ namespace HonPhpsm\smecc\SM2;
 class Hex2ByteBuf
 {
 
-    public static function ConveHonPhpsmp2ByteArray($GmpData)
+    public static function ConveRtgp2ByteArray($GmpData)
     {
         $HexStr = gmp_strval($GmpData, 16);
         $OutBuf = array();

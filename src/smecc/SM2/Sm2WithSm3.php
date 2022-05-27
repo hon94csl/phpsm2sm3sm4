@@ -29,19 +29,19 @@ class Sm2WithSm3
 
         // a,b
         $gmp_a = $generator->getCurve()->GetA();
-        $a = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_a);
+        $a = Hex2ByteBuf::ConveRtgp2ByteArray($gmp_a);
         $sm3->BlockUpdate($a, 0, sizeof($a));
 
         $gmp_b = $generator->getCurve()->GetB();
-        $b = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_b);
+        $b = Hex2ByteBuf::ConveRtgp2ByteArray($gmp_b);
         $sm3->BlockUpdate($b, 0, sizeof($b));
         // gx,gy
         $gmp_gx = $generator->GetX();
-        $gx = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_gx);
+        $gx = Hex2ByteBuf::ConveRtgp2ByteArray($gmp_gx);
         $sm3->BlockUpdate($gx, 0, sizeof($gx));
 
         $gmp_gy = $generator->GetY();
-        $gy = Hex2ByteBuf::ConveHonPhpsmp2ByteArray($gmp_gy);
+        $gy = Hex2ByteBuf::ConveRtgp2ByteArray($gmp_gy);
         $sm3->BlockUpdate($gy, 0, sizeof($gy));
         // x,y
         $bPubKeyX = array();

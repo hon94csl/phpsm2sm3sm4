@@ -2,6 +2,7 @@
 
 namespace HonPhpsm\sm;
 
+use FG\ASN1\Universal\Boolean;
 use HonPhpsm\ecc\RtEccFactory;
 use HonPhpsm\ecc\Sm2Signer;
 use Mdanter\Ecc\Crypto\Key\PrivateKey;
@@ -37,7 +38,7 @@ class RtSm2
     ];
     protected $cipher = null;
 
-    function __construct($formatSign = 'hex')
+    function __construct($formatSign = 'hex', bool $useDerandomizedSignatures = true)
     {
         $this->adapter = RtEccFactory::getAdapter();
         $this->generator = RtEccFactory::getSmCurves()->generatorSm2();
@@ -46,8 +47,16 @@ class RtSm2
         } else {
             $this->formatSign = 'hex';
         }
+        $this->useDerandomizedSignatures = $useDerandomizedSignatures;
     }
 
+    /**
+     * 是否固定签名不随机
+     */
+    public function setUseDerandomizedSignatures(bool $bool)
+    {
+        $this->useDerandomizedSignatures = $bool;
+    }
 
     /**
      * 随机生成一对16进制明文公私钥
@@ -257,12 +266,13 @@ class RtSm2
 
         // get hash
         list($pubKeyX, $pubKeyY) = $this->_getKeyXY($publicKey);
-
+        var_dump($pubKeyX);
+        var_dump($pubKeyY);
         $hash = $this->_doS3Hash($document, $pubKeyX, $pubKeyY, $generator, $userId);
 
         // get pubkey parse
         $key = $this->_getPubKeyObject($pubKeyX, $pubKeyY);
-
+        var_dump($hash);
         $signer = new Sm2Signer($adapter);
         return  $signer->verify($key, $sig, $hash);
     }
@@ -322,6 +332,12 @@ class RtSm2
         } else if (strlen($publicKey) == 130 && substr($publicKey, 0, 2) == '04') {
             $pubKeyX = substr($publicKey, 2, 64);
             $pubKeyY = substr($publicKey, -64);
+        } else if (strlen($publicKey) == 182) {
+            //SM2 ASN1格式标准公钥 = SM2标准公钥头 + SM2裸公钥X + SM2裸公钥Y
+            //移除 标准公钥头 
+            $key_xy = substr($publicKey, 182 - 128);
+            $pubKeyX = substr($key_xy, 0, strlen($key_xy) / 2);
+            $pubKeyY = substr($key_xy, strlen($key_xy) / 2);
         } else {
             throw new \Exception('publickey format error');
         }
