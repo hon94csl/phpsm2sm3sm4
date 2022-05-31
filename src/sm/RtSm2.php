@@ -26,7 +26,7 @@ class RtSm2
     protected $useDerandomizedSignatures = true;
     // 是否固定加密不随机，算法中的是否每次都用不同的中间椭圆，如果固定的话，
     // 同样的文本加密后的数据是一样的，但速度会更快一些，随机的话，每次加密出来的数据不一样
-    protected $useDerandomizedEncrypt = false;
+    protected $useDerandomizedEncrypt = true;
     // 输入输出的签名方式 16进制的还是base64
     protected $formatSign = 'hex';
     // 可扩展自定义多种返回签名方式
@@ -266,13 +266,12 @@ class RtSm2
 
         // get hash
         list($pubKeyX, $pubKeyY) = $this->_getKeyXY($publicKey);
-        var_dump($pubKeyX);
-        var_dump($pubKeyY);
+
         $hash = $this->_doS3Hash($document, $pubKeyX, $pubKeyY, $generator, $userId);
 
         // get pubkey parse
         $key = $this->_getPubKeyObject($pubKeyX, $pubKeyY);
-        var_dump($hash);
+
         $signer = new Sm2Signer($adapter);
         return  $signer->verify($key, $sig, $hash);
     }
